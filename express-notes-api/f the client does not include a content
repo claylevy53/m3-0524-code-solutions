@@ -1,0 +1,10 @@
+If a client sends a PUT request to the /api/notes/:id route, then there are four possible outcomes:
+
+If the client does not specify a valid id (a positive integer) OR they do not include a content property in the request body, then they should receive a 400 response containing a JSON object with an error property detailing the problem.
+
+If the client specified a valid id and content, but the matching note does not exist, then they should receive a 404 response containing a JSON object with an error property detailing the problem.
+
+If the client specified a valid id and content, but an error occurred while writing to data.json, then they should receive a 500 response containing a JSON object. The JSON object should have an error property that states a generic error message: { "error": "An unexpected error occurred." }. You can "test" this error handling by trying to write the data to a file in a directory that doesn't exist e.g. derp/data.json. Your server code should pass the err object to console.error() instead of throwing it, then send the 500 response to the client.
+
+
+If the client specified a valid id and content, and the note was successfully updated, then they should receive a 200 response containing a JSON object of the updated note.
