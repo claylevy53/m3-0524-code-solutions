@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars -- Remove me */
-/* eslint-disable @typescript-eslint/no-empty-function -- Remove me */
 import { useEffect, useState } from 'react';
 import { PageTitle } from './PageTitle';
 import { TodoList } from './TodoList';
@@ -59,7 +57,9 @@ export function Todos() {
       if (!response.ok) throw new Error('Network response was not ok');
       const updatedTodoFromServer = await response.json();
       setTodos((prevTodos) =>
-        prevTodos.map((t) => (t.todoId === updatedTodoFromServer.todoId ? updatedTodoFromServer : t))
+        prevTodos.map((t) =>
+          t.todoId === updatedTodoFromServer.todoId ? updatedTodoFromServer : t
+        )
       );
     } catch (error) {
       setError(error);
@@ -71,7 +71,11 @@ export function Todos() {
   }
   if (error) {
     console.error('Fetch error:', error);
-    return <div>Error! {error instanceof Error ? error.message : 'Unknown error'}</div>;
+    return (
+      <div>
+        Error! {error instanceof Error ? error.message : 'Unknown error'}
+      </div>
+    );
   }
   return (
     <div className="container">

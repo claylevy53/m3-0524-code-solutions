@@ -1,4 +1,3 @@
-import { Todo } from './Todos';
 import './TodoList.css';
 
 export function TodoList({ todos, toggleCompleted }) {
