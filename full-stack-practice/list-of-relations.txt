@@ -1,5 +1,0 @@
-         List of relations
- Schema |   Name   | Type  | Owner
---------+----------+-------+-------
- public | products | table | dev
-(1 row)
